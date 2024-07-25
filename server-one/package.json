@@ -1,0 +1,22 @@
+{
+  "name": "nibol-service",
+  "version": "1.0.0",
+  "description": "POC Fuel Services",
+  "main": "server-one.js",
+  "scripts": {
+    "start": "node server-one.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/annibal/nibol-service"
+  },
+  "author": "Arthur Annibal Tavares",
+  "license": "MIT",
+  "homepage": "https://github.com/annibal/nibol-service#readme",
+  "dependencies": {
+    "fastify": "^4.28.1"
+  },
+  "engines": {
+    "node": "20.x"
+  }
+}
