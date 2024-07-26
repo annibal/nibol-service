@@ -1,7 +1,7 @@
 {
   "name": "nibol-service",
-  "version": "1.0.0",
-  "description": "POC Fuel Services",
+  "version": "0.0.1",
+  "description": "First multi-purpose Web Service to provide additional functionality for my applications",
   "main": "server-one.js",
   "scripts": {
     "start": "node server-one.js"

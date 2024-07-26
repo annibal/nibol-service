@@ -1,24 +1,29 @@
-const port = process.env.PORT || 3000;
-const host = ("RENDER" in process.env) ? `0.0.0.0` : `localhost`;
+const port = process.env.PORT || 3001;
+const host = "RENDER" in process.env ? `0.0.0.0` : `localhost`;
 
-const fastify = require('fastify')({
-  logger: true
-})
+const fastify = require("fastify")({
+  logger: true,
+});
 
-fastify.get('/', function (request, reply) {
-  reply.type('text/html').send(html)
-})
+fastify.get("/", function (request, reply) {
+  reply.type("text/html").send(html);
+});
 
-fastify.get('/healthz', function (request, reply) {
-  reply.type('text/html').send(`It works! Uptime: ${process.uptime()}`)
-})
+fastify.get("/healthz", function (request, reply) {
+  reply.type("text/html").send(`It works! Uptime: ${process.uptime()}`);
+});
 
-fastify.listen({host: host, port: port }, function (err, address) {
+fastify.listen({ host: host, port: port }, function (err, address) {
+  console.log(`Server is UP! host="${host}" port="${port}"`);
+  const strEnv = Object.entries(process.env)
+    .map((nv, i) => `#${i}:${nv[0]}="${nv[1]}"`)
+    .join(", \n");
+  console.log(`ENV: \n${strEnv}`);
   if (err) {
-    fastify.log.error(err)
-    process.exit(1)
+    fastify.log.error(err);
+    process.exit(1);
   }
-})
+});
 
 const html = `
 <!DOCTYPE html>
@@ -77,4 +82,4 @@ const html = `
     </section>
   </body>
 </html>
-`
+`;
